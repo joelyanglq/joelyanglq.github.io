@@ -16,6 +16,8 @@ url                      : https://joelyanglq.github.io # the base hostname & pr
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "joelyanglq/joelyanglq.github.io"
 
+timezone: "America/New_York"
+
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
@@ -28,7 +30,7 @@ author:
   location         : "Ann Arbor, MI; US"
   employer         : "University of Michigan"
   uri              : # URL
-  email            : "joelyang[at]umich[dot]edu" 
+  email            : "joelyang@umich.edu" 
 
   # Academic websites
   # arxiv            : # URL - Update with the correct link to your profile
@@ -211,19 +213,19 @@ kramdown:
 
 
 # These settings control the types of collections used by the template
-collections:
-  teaching:
-    output: true
-    permalink: /:collection/:path/
-  publications:
-    output: true
-    permalink: /:collection/:path/
-  portfolio:
-    output: true
-    permalink: /:collection/:path/
-  talks:
-    output: true
-    permalink: /:collection/:path/
+# collections:
+#   teaching:
+#     output: true
+#     permalink: /:collection/:path/
+#   publications:
+#     output: true
+#     permalink: /:collection/:path/
+#   portfolio:
+#     output: true
+#     permalink: /:collection/:path/
+#   talks:
+#     output: true
+#     permalink: /:collection/:path/
 
 
 # These settings control how pages and collections are included in the site
