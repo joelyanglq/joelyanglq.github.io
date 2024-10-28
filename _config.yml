@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : ""
+title                    : "Home"
 title_separator          : " "
 name                     : &name "Linqiao Yang"
 description              : &description "personal description"
@@ -24,7 +24,7 @@ author:
   avatar           : "profile.png"
   name             : "Linqiao Yang"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sideba"
+  bio              : ""
   location         : "Ann Arbor, MI; US"
   employer         : "University of Michigan"
   uri              : # URL
