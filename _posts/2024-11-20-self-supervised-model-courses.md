@@ -1,6 +1,6 @@
 ---
 title: '无监督学习和生成模型'
-date: 2024-11-01
+date: 2024-11-20
 permalink: /posts/2024/11/deep-learning/
 tags:
   - Deep Learning

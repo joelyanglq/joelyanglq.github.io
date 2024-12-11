@@ -6,6 +6,7 @@ tags:
   - Anki
   - Psychology of Learning
   - self improvement
+  - Learning strategy
 ---
 
 不知不觉已经使用Anki差不多一年了，虽然可能只有其中的几个月是高强度使用的，但我还是决定先分享一下我的感受。
