@@ -1,6 +1,6 @@
 ---
 title: '如何阅读数学证明'
-date: 2024-11-20
+date: 2024-12-10
 permalink: /posts/2024/12/how-to-read-mathematics-proof/
 tags:
   - Learning Strategy
