@@ -54,9 +54,10 @@ pip install openai
 
 ```python
 import openai
-
+client = OpenAI(api_key = myAPIkey)
+# client = OpenAI(api_key="<DeepSeek API Key>", base_url="https://api.deepseek.com")
 # For GPT 3.5 Turbo, the endpoint is ChatCompletion
-openai.ChatCompletion.create(
+response = client.chat.completions.create(
     # For GPT 3.5 Turbo, the model is "gpt-3.5-turbo"
     model="gpt-3.5-turbo",
     # Conversation as a list of messages.
