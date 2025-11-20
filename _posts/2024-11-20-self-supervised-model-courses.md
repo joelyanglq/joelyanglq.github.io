@@ -18,3 +18,7 @@ tags:
 3. **人大高瓴人工智能学院 [《深度生成模型》](https://www.bilibili.com/video/BV1yq421A7ig?spm_id_from=333.788.videopod.sections&vd_source=4186da6ab062ac2828dee950943ac30f)**
   只有视频，没有slides，没有作业。
   朋友推荐的。说王崇轩老师讲的很好。
+4. **[MIT 6.S978 Deep Generative Models](https://mit-6s978.github.io/schedule.html)**
+  感受到了和顶尖学生的差距，6次作业，从VAE到consistency model，巨大的阅读量。
+5. **[MIT 6.S184: Generative AI with Stochastic Differential Equations](https://diffusion.csail.mit.edu)
+  小学期也很顶
