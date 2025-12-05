@@ -32,7 +32,7 @@ tags:
 
 3. jay提到不用ibkr提供的greeks，得自己手写一个bs solver，我还纳闷为什么。但自己解出来喝yf提供的确实有些差别。
 
-![图1： QQQ期权在20251204上午11:45时的隐含波动率曲线](../images/qqq_iv_curve.png)
+![图1： QQQ期权在20251204上午11:45时的隐含波动率曲线](/images/qqq_iv_curve.png)
 
 首先，从图中可以看到call和put的iv曲线其实是两条，两条曲线大致在atm处相交（相切）。不过QQQ和SPY的曲线位置则有所不同。QQQ是相交穿过，而SPY是相切，被包着。
 
@@ -55,8 +55,8 @@ Gemini解释说，这是著名的Volatility Smirk现象。来源于（或者反�
 
 对于每一个固定的到期日 $T$，我们假设 IV 符合 Raw SVI 公式：
 $$\sigma_{BS}^2(k) = a + b (\rho(k - m) + \sqrt{(k - m)^2 + \sigma^2})$$
-$k$: Log-Moneyness ($\ln(K/S)$)
-$\{a, b, \rho, m, \sigma\}$: 5 个待定参数。
+- k: Log-Moneyness (ln(K/S))
+- $\{a, b, \rho, m, \sigma\}$: 5 个待定参数。
 
 - 流程：切片 (Slicing): 把数据按到期日分组。比如 SPY 有 10 个到期日，就分 10 组。
 - 最优化 (Optimization): 对于每一组，使用最小二乘法（scipy.optimize.minimize）寻找最优的 5 个参数，使得模型曲线穿过所有的散点。
@@ -68,6 +68,7 @@ $\{a, b, \rho, m, \sigma\}$: 5 个待定参数。
 从 2D 线条变成 3D 曲面做完 SVI 校准后，你在特定的日期（如 12月20日, 1月17日）有了完美的微笑曲线。但如果我要给 1月5日 到期的期权定价怎么办？
 
 **全方差插值 (Total Variance Interpolation)**:通常在“总方差” ($\sigma^2 T$) 空间进行线性插值。
+
 $$v(t) = \frac{t - t_1}{t_2 - t_1} v(t_2) + \frac{t_2 - t}{t_2 - t_1} v(t_1)$$
 
 这保证了随着时间推移，不确定性是线性增加的，避免套利。
@@ -78,13 +79,13 @@ $$v(t) = \frac{t - t_1}{t_2 - t_1} v(t_2) + \frac{t_2 - t}{t_2 - t_1} v(t_1)$$
 - 日历价差 (Calendar Arbitrage): 远期总方差必须大于近期总方差（$\partial (T\sigma^2) / \partial T > 0$）。如果不满足，意味着你可以通过“买近期、卖远期”无风险获利。
 - 蝴蝶价差 (Butterfly Arbitrage): 概率密度函数必须非负。SVI 某些参数组合可能会导致负概率，必须剔除或加惩罚项重算。
 
-![图中展示了我们通过这两步画出的3Div曲面](../images/qqq-iv-surface-svi3d.png)
+![图中展示了我们通过这两步画出的3Div曲面](/images/qqq-iv-surface-svi3d.png)
 
 下面两张图对比了我们用全部的otm期权和调整deep otm和near otm比例为3:7得到的去买呢
 
-![alt text](../images/qqq-iv-surface-pure_otm.png)
+![alt text](/images/qqq-iv-surface-pure_otm.png)
 
-![alt text](../images/qqq-iv-surface-prop_otm.png)
+![alt text](/images/qqq-iv-surface-prop_otm.png)
 
 按理说应该加一个评估的。不过我还没搞懂怎么评估。
 
