@@ -115,10 +115,12 @@
   border-radius: $border-radius;
   background: $background-color;
   align-items: flex-start;
+  min-height: 150px;
 
   .archive__item-teaser {
     flex: 0 0 110px;
     margin: 0;
+    align-self: stretch;
   }
 
   .archive__item-body {
@@ -127,7 +129,8 @@
 
   .archive__item-teaser img {
     width: 100%;
-    height: 80px;
+    height: 80%;
+    max-height: 180px;
     object-fit: cover;
   }
 }
