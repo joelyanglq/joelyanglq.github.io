@@ -1,11 +1,13 @@
 ---
 title: 'Option（一）：隐含波动率曲面'
-date: 2025-10-02
+date: 2025-12-05
 permalink: /posts/2025/12/quant/iv-surface/
 tags:
   - Quant
   - Option
   - Implied Volatility
+header:
+  teaser: qqq-iv-surface-svi3d.png
 ---
 
 本篇文章的灵感来源于看到@[猫佬](https://www.zhihu.com/people/yan-guan-lin-20)的知乎回答https://www.zhihu.com/question/1921237127863202
@@ -92,4 +94,3 @@ $$v(t) = \frac{t - t_1}{t_2 - t_1} v(t_2) + \frac{t_2 - t}{t_2 - t_1} v(t_1)$$
 # 总结
 
 总结一下，我利用yfinance的option chain snap shot数据，完成了构建Implied volatilty曲面所需的数据清洗、曲面构建全流程。从中学习到了美股期权iv的skew性质，对iv近陡远平的term structure有了直观的认识。
-

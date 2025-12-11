@@ -12,8 +12,10 @@
   {% assign title = post.title %}
 {% endif %}
 
+{% assign show_teaser = include.show_teaser and teaser %}
+
 <div class="{{ include.type | default: "list" }}__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item{% if show_teaser %} archive__item--teaser{% endif %}" itemscope itemtype="http://schema.org/CreativeWork">
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
         <img src=
@@ -22,9 +24,21 @@
           {% else %}
             "{{ teaser | prepend: "/images/" | prepend: base_path }}"
           {% endif %}
-          alt="">
+          alt="{{ title | strip_html | escape }}">
+      </div>
+    {% elsif show_teaser %}
+      <div class="archive__item-teaser">
+        <img src=
+          {% if teaser contains "://" %}
+            "{{ teaser }}"
+          {% else %}
+            "{{ teaser | prepend: "/images/" | prepend: base_path }}"
+          {% endif %}
+          alt="{{ title | strip_html | escape }}">
       </div>
     {% endif %}
+
+    {% if show_teaser %}<div class="archive__item-body">{% endif %}
 
     <h2 class="archive__item-title" itemprop="headline">
       {% if post.link %}
@@ -65,6 +79,8 @@
     {% elsif post.slidesurl %}
       <p><a href="{{ post.slidesurl }}">Download Slides</a></p>
     {% endif %}
+
+    {% if show_teaser %}</div>{% endif %}
 
   </article>
 </div>

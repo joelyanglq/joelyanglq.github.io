@@ -107,6 +107,38 @@
   }
 }
 
+.archive__item--teaser {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: $background-color;
+
+  .archive__item-teaser {
+    margin: 0;
+  }
+
+  .archive__item-body {
+    flex: 1;
+  }
+
+  @include breakpoint($small) {
+    flex-direction: row;
+    align-items: center;
+
+    .archive__item-teaser {
+      flex: 0 0 220px;
+    }
+  }
+
+  .archive__item-teaser img {
+    height: 150px;
+    object-fit: cover;
+  }
+}
+
 
 /*
    Grid view

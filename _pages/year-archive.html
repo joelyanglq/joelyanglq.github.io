@@ -3,6 +3,7 @@ layout: archive
 permalink: /year-archive/
 title: "Blog posts"
 author_profile: true
+show_teasers: true
 redirect_from:
   - /wordpress/blog-posts/
 ---
@@ -15,5 +16,5 @@ redirect_from:
     <h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
     {% capture written_year %}{{ year }}{% endcapture %}
   {% endif %}
-  {% include archive-single.html %}
+  {% include archive-single.html show_teaser=page.show_teasers %}
 {% endfor %}
