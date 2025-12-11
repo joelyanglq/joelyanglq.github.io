@@ -12,7 +12,7 @@
   {% assign title = post.title %}
 {% endif %}
 
-{% assign show_teaser = include.show_teaser and teaser and teaser != "" %}
+{% assign show_teaser = include.show_teaser and post.header.teaser and post.header.teaser != "" %}
 
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item{% if show_teaser %} archive__item--teaser{% endif %}" itemscope itemtype="http://schema.org/CreativeWork">

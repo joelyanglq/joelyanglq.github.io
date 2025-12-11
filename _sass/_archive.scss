@@ -109,18 +109,22 @@
 
 .archive__item--teaser {
   display: flex;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
   border: 1px solid $border-color;
   border-radius: $border-radius;
   background: $background-color;
-  align-items: flex-start;
-  min-height: 150px;
+  align-items: center;
+  min-height: 140px;
 
   .archive__item-teaser {
-    flex: 0 0 110px;
+    flex: 0 0 38%;
+    max-width: 240px;
     margin: 0;
     align-self: stretch;
+    aspect-ratio: 3 / 2;
+    display: flex;
+    align-items: center;
   }
 
   .archive__item-body {
@@ -129,9 +133,9 @@
 
   .archive__item-teaser img {
     width: 100%;
-    height: 80%;
-    max-height: 180px;
+    height: 100%;
     object-fit: cover;
+    object-position: center;
   }
 }
 
