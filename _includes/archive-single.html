@@ -5,6 +5,8 @@
 {% else %}
   {% assign teaser = "" %}
 {% endif %}
+{% assign teaser = teaser | to_s | strip %}
+{% assign placeholder_teaser = "teaser-placeholder.png" %}
 
 {% if post.id %}
   {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
@@ -12,27 +14,32 @@
   {% assign title = post.title %}
 {% endif %}
 
-{% assign show_teaser = include.show_teaser and post.header.teaser and post.header.teaser != "" %}
+{% assign show_teaser = include.show_teaser %}
+{% if teaser.size > 0 %}
+  {% assign teaser_to_use = teaser %}
+{% else %}
+  {% assign teaser_to_use = placeholder_teaser %}
+{% endif %}
 
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item{% if show_teaser %} archive__item--teaser{% endif %}" itemscope itemtype="http://schema.org/CreativeWork">
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
         <img src=
-          {% if teaser contains "://" %}
-            "{{ teaser }}"
+          {% if teaser_to_use contains "://" %}
+            "{{ teaser_to_use }}"
           {% else %}
-            "{{ teaser | prepend: "/images/" | prepend: base_path }}"
+            "{{ teaser_to_use | prepend: "/images/" | prepend: base_path }}"
           {% endif %}
           alt="{{ title | strip_html | escape }}">
       </div>
     {% elsif show_teaser %}
       <div class="archive__item-teaser">
         <img src=
-          {% if teaser contains "://" %}
-            "{{ teaser }}"
+          {% if teaser_to_use contains "://" %}
+            "{{ teaser_to_use }}"
           {% else %}
-            "{{ teaser | prepend: "/images/" | prepend: base_path }}"
+            "{{ teaser_to_use | prepend: "/images/" | prepend: base_path }}"
           {% endif %}
           alt="{{ title | strip_html | escape }}">
       </div>

@@ -1,0 +1,59 @@
+{% include base_path %}
+
+{% if post.header.teaser %}
+  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
+{% else %}
+  {% assign teaser = "teaser-placeholder.png" %}
+{% endif %}
+{% assign teaser = teaser | to_s | strip %}
+
+{% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% assign tags_list = post.tags | default: empty %}
+
+<div class="pub-card">
+  <div class="pub-card__media">
+    <img src=
+      {% if teaser contains "://" %}
+        "{{ teaser }}"
+      {% else %}
+        "{{ teaser | prepend: "/images/" | prepend: base_path }}"
+      {% endif %}
+      alt="{{ title | strip_html | escape }}">
+  </div>
+
+  <div class="pub-card__body">
+    {% if tags_list and tags_list.size > 0 %}
+      <div class="pub-card__meta">
+        {% for tag in tags_list %}
+          <span class="pub-card__badge">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <h3 class="pub-card__title">
+      <a href="{{ base_path }}{{ post.url | default: post.permalink }}">{{ title }}</a>
+    </h3>
+
+    {% if post.authors %}
+      <p class="pub-card__authors">{{ post.authors }}</p>
+    {% endif %}
+
+    {% if post.venue %}
+      <p class="pub-card__venue">{{ post.venue }}{% if post.date %}, {{ post.date | date: "%Y" }}{% endif %}</p>
+    {% elsif post.date %}
+      <p class="pub-card__venue">{{ post.date | date: "%Y" }}</p>
+    {% endif %}
+
+    {% if post.excerpt %}
+      <p class="pub-card__excerpt">{{ post.excerpt | markdownify | strip_html }}</p>
+    {% endif %}
+
+    {% if post.link or post.paperurl or post.slidesurl %}
+      <div class="pub-card__links">
+        {% if post.link %}<a href="{{ post.link }}">Homepage</a>{% endif %}
+        {% if post.paperurl %}<a href="{{ post.paperurl }}">Paper</a>{% endif %}
+        {% if post.slidesurl %}<a href="{{ post.slidesurl }}">Slides</a>{% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>
