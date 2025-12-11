@@ -109,14 +109,15 @@
 
 .archive__item--teaser {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1.25rem;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
   border: 1px solid $border-color;
   border-radius: $border-radius;
   background: $background-color;
+  align-items: flex-start;
 
   .archive__item-teaser {
+    flex: 0 0 110px;
     margin: 0;
   }
 
@@ -124,17 +125,9 @@
     flex: 1;
   }
 
-  @include breakpoint($small) {
-    flex-direction: row;
-    align-items: center;
-
-    .archive__item-teaser {
-      flex: 0 0 220px;
-    }
-  }
-
   .archive__item-teaser img {
-    height: 150px;
+    width: 100%;
+    height: 80px;
     object-fit: cover;
   }
 }
